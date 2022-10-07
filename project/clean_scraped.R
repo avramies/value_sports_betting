@@ -1,3 +1,5 @@
+devtools::install_github("avramies/value_sports_betting/betting")
+library(betting)
 library(tidyverse)
 
 clean_scraped <- function(uncleaned){
