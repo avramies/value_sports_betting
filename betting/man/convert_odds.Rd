@@ -8,12 +8,15 @@ converting odds to decimal odds
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-convert_odds(x)
+convert_odds(odds, initial_odds_type)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{odds}{
+the odds that the function is converting
+}
+\item{initial_odds_type}{
+the type of odds that the function is converting from. Can be "american" or "fractional"
 }
 }
 \details{
@@ -30,7 +33,7 @@ convert_odds(x)
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Avramie Schwalb
 }
 \note{
 %%  ~~further notes~~
@@ -42,15 +45,7 @@ convert_odds(x)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x)
-{
-  }
-}
+convert_odds(-300, initial_odds_type = "american")}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
 % \keyword{ ~kwd1 }
