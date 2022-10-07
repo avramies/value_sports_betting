@@ -2,6 +2,7 @@ library(tidyverse)
 library(data.table)
 library(skimr)
 library(corrplot)
+library(caret)
 setwd("/Users/avrahamschwalb/Documents/value_sports_betting/project/data/nba")
 
 
@@ -11,17 +12,22 @@ nba <-
   map_df(~fread(.))
 
 attach(nba)
+nba = nba %>%
+  mutate(home_true_prob = home_prob/ (home_prob+away_prob),away_true_prob = away_prob / (home_prob + away_prob))
 
 skim(nba)
+
 
 nba = nba %>%
   mutate(home_win = if_else(home_score > away_score, 0, 1)) %>%
   mutate(away_win = if_else(home_win == 0, 1, 0)) %>%
   mutate(home_win = as.factor(home_win),away_win = as.factor(away_win), home_team = as.factor(home_team), away_team = as.factor(away_team))
 
-calibration = calibration(nba$home_win ~ nba$home_prob)
-ggplot(calibration)
-  
+calibration_home = calibration(nba$home_win ~ nba$home_prob + nba$home_true_prob)
+ggplot(calibration_home)
+
+calibration_away = calibration(nba$away_win ~ nba$away_prob + nba$away_true_prob)
+ggplot(calibration_away)
 
 nba %>%
   ggplot(aes(x = home_prob)) +
