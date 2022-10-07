@@ -1,5 +1,6 @@
 # function for converting odds
 convert_odds <- function(odds, initial_odds_type = "american"){
+  odds = as.numeric(odds)
   if(initial_odds_type == "american"){
     if(odds > 0){
       decimal = 1 + (odds / 100)
