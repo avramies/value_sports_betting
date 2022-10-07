@@ -64,4 +64,5 @@ clean_mlb <- function(pages,season){
   write.csv(allData, file = paste0("/Users/avrahamschwalb/Documents/value_sports_betting/project/data/mlb/",season,".csv"), row.names = F)
 }
 
+debugonce(clean_mlb)
 clean_mlb(1:58, "2021")
