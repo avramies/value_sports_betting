@@ -52,7 +52,7 @@ clean_mlb <- function(pages,season){
     data_frame[[1]]$'5' = na_if(data_frame[[1]]$'5', "-")
     data_frame[[1]]$'6' = na_if(data_frame[[1]]$'6', "-")
     
-    cleaned_dataframe = clean_scraped(as.data.frame(data_frame[[1]]))
+    cleaned_dataframe = clean_mlb_scraped(as.data.frame(data_frame[[1]]))
     
     if(!is.data.frame(allData)){
       allData = cleaned_dataframe

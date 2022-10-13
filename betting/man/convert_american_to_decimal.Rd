@@ -1,22 +1,19 @@
-\name{convert_odds}
-\alias{convert_odds}
+\name{convert_american_to_decimal}
+\alias{convert_american_to_decimal}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-converting odds to decimal odds
+converting american odds to decimal odds
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-convert_odds(odds, initial_odds_type)
+convert_american_to_decimal(odds)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{odds}{
 the odds that the function is converting
-}
-\item{initial_odds_type}{
-the type of odds that the function is converting from. Can be "american" or "fractional"
 }
 }
 \details{
@@ -45,7 +42,7 @@ Avramie Schwalb
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-convert_odds(-300, initial_odds_type = "american")}
+convert_odds(-300)}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
 % \keyword{ ~kwd1 }
