@@ -60,10 +60,8 @@ clean_mlb_scraped <- function(uncleaned){
 
   cleaned_scores = cleaned_teams[,-5]
 
-  for(row in 1:nrow(cleaned_scores)){
-    cleaned_scores$home_prob[row] = odds_to_implied_probability(cleaned_scores$home_odds[row], "american")
-    cleaned_scores$away_prob[row] = odds_to_implied_probability(cleaned_scores$away_odds[row], "american")
-  }
+  cleaned_scores = mutate(cleaned_scores, home_prob = odds_to_implied_probability(home_odds),
+         away_prob = odds_to_implied_probability(away_odds))
 
   cleaned_scores = cleaned_scores %>%
     mutate(pinnacle_margin = home_prob + away_prob - 1)
